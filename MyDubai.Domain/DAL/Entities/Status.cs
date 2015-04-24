@@ -11,7 +11,7 @@ namespace MyDubai.Domain.DAL.Entities
     {
         [Key]
         public String StatusID { get; set; }
-        public String ProfileID { get; set; }
+        public String Username { get; set; }
         public String StatusPosted { get; set; }
         public String[] Hashtags { get; set; }
         public Int32 LastLikesCount { get; set; }
