@@ -10,40 +10,45 @@
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
     <link rel="stylesheet" href="~/Content/bootstrap-spacelab-theme.css"/>
+    <link rel="stylesheet" href="~/Content/site.css" />
 </head>
-<body ng-app="LoginApp">
-    <div class="well col-md-4 col-md-offset-4" style="margin-top:50px;"> 
-        <form role="form" ng-submit="login()" class="ng-pristine ng-valid ng-valid-email">
-            <fieldset>
-                <legend>Login</legend>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" ng-model="email" class="form-control ng-pristine ng-valid needsclick ng-valid-email ng-touched" placeholder="Enter email">
+<body ng-app="myDubaiApp" ng-controller="loginController">
+    <div class="row">
+        <div id="login-wrapper" class="well">
+            <form role="form">
+                <fieldset>
+                    <div>
+                        <h3>Login</h3>
+                        <p>
+                            Please provide a valid credential to continue.
+                        </p>
+                    </div>
+                    <div class="alert alert-{{alert.type}}" ng-model="alert" ng-show="alert.msg" role="alert">
+                        {{alert.msg}}
+                    </div>
+                    <div class="form-group">
+                        <input focus-on="email" type="text" ng-model="email" focus="{{email}}" class="form-control" placeholder="Enter email">
+                        <input focus-on="password" type="password" ng-model="password" focus="{{password}}" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" value="Test" />
+                        <span>Remember Me</span>
+                    </div>
+                </fieldset>
+                <button class="btn btn-primary btn-block" ng-click="validate()">
+                    Login
+                </button>
+                <div id="other-links">
+                    <a href="#">Request for an account</a>
                 </div>
-
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control needsclick" placeholder="Password">
-                </div>
-
-                <div class="form-group">
-                    <label>Remember Me</label>
-                    <div class="switch ng-isolate-scope switch-transition-enabled active ng-valid" ng-class="{active: model}" ng-model="rememberMe"><div class="switch-handle"></div></div>
-                </div>
-            </fieldset>
-            <hr>
-
-            <button class="btn btn-primary btn-block">
-                Login
-            </button>
-
-
-
-        </form>
+            </form>
+        </div>
     </div>
 
     <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
     <script type="text/javascript" src="~/Scripts/angular-ui/ui-bootstrap.min.js"></script>
     <script type="text/javascript" src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/AngularModule/MyDubaiApp.js"></script>
+    <script type="text/javascript" src="~/Scripts/AngularControllers/LoginController.js"></script>
 </body>
 </html>

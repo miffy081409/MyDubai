@@ -1,0 +1,34 @@
+﻿body {
+    margin:0;
+    padding:0;
+}
+#login-wrapper {
+    margin-top:50px;
+    max-width:370px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+    #login-wrapper > form > fieldset > .form-group > input[type=text] {
+        border-bottom-left-radius:0;
+        border-bottom-right-radius:0;
+    }
+
+    #login-wrapper > form > fieldset > .form-group > input[type=password] {
+        border-top:0;
+        border-top-left-radius:0;
+        border-top-right-radius:0;
+    }
+
+    #login-wrapper > form > button {
+        margin-top:10px;
+    }
+
+    #login-wrapper > form > #other-links {
+        margin-top:20px;
+    }
+
+.alert {
+    padding:5px !important;
+}
+
