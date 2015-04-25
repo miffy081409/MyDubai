@@ -27,19 +27,19 @@
                         {{alert.msg}}
                     </div>
                     <div class="form-group">
-                        <input focus-on="email" type="text" ng-model="email" focus="{{email}}" class="form-control" placeholder="Enter email">
-                        <input focus-on="password" type="password" ng-model="password" focus="{{password}}" class="form-control" placeholder="Password">
+                        <input focus-on="email" type="text" ng-model="email" focus="{{email}}" class="form-control" placeholder="Enter email" ng-readonly="isProcessing">
+                        <input focus-on="password" type="password" ng-model="password" focus="{{password}}" class="form-control" placeholder="Password" ng-readonly="isProcessing">
                     </div>
                     <div class="form-group">
                         <input type="checkbox" value="Test" />
                         <span>Remember Me</span>
                     </div>
                 </fieldset>
-                <button class="btn btn-primary btn-block" ng-click="validate()">
+                <button class="btn btn-primary btn-block" ng-click="validate()" ng-disabled="isProcessing">
                     Login
                 </button>
                 <div id="other-links">
-                    <a href="#">Request for an account</a>
+                    <a href="#">Request for an account</a>  
                 </div>
             </form>
         </div>

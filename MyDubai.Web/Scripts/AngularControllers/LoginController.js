@@ -21,6 +21,7 @@ app.controller('loginController', function ($scope, focus) {
     $scope.alert = { type: 'danger', msg: '' };
     $scope.email = '';
     $scope.password = '';
+    $scope.isProcessing = false;
 
     $scope.validate = function () {
         if ($scope.email === '') {
@@ -41,7 +42,7 @@ app.controller('loginController', function ($scope, focus) {
     }
 
     $scope.login = function () {
-
+        $scope.isProcessing = true;
     }
 
     $scope.showErrorMessage = function (message) {
