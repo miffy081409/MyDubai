@@ -2,6 +2,15 @@
     margin:0;
     padding:0;
 }
+
+a {
+    color:#6d94bf;
+}
+
+h3, h4 {
+    color:#3e648d
+}
+
 #login-wrapper {
     margin-top:50px;
     max-width:370px;
@@ -19,6 +28,20 @@
         border-top-left-radius:0;
         border-top-right-radius:0;
     }
+
+    #login-wrapper > form > fieldset > .user-icon {
+          width: 130px;
+          height: 130px;
+          margin: 0 auto;
+          margin-bottom: 10px;
+    }
+
+        #login-wrapper > form > fieldset > .user-icon > img {
+            width:130px;
+            height:130px;
+            border-radius: 50%;
+            background: #e5e5e5;
+        }
 
     #login-wrapper > form > button {
         margin-top:10px;

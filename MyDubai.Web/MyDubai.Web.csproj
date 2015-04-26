@@ -96,6 +96,7 @@
     <Content Include="Content\bootstrap-spacelab-theme.css" />
     <Content Include="Content\site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Images\user.png" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
