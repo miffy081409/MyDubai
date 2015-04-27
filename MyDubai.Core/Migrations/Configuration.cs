@@ -10,7 +10,7 @@ namespace MyDubai.Core.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(MyDubai.Core.DAL.MyDubaiDataContext context)
