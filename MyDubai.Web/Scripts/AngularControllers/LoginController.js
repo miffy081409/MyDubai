@@ -44,21 +44,41 @@ app.controller('loginController', function ($scope, $http,  focus) {
 
     $scope.login = function () {
         $scope.isProcessing = true;
-
-        $http.get($scope.baseAPIUrl + "/Users?$filter=Username eq '" + $scope.email + "' and Password eq '" + $scope.password + "'").success(function (data) {
-            if (data.value.length > 0) {
-                alert('redirect here to dashboard/homepage');
+        
+        var data = { username: $scope.email, password: $scope.password };
+        $http.post(window.location.href, data)
+        .success(function (data) {
+            if (data.toLowerCase() === 'success') {
+                var href = getParameterByName('ReturnUrl');
+                window.location.href = href;
             }
             else {
                 $scope.showErrorMessage('Invalid Credentials.');
             }
 
             $scope.isProcessing = false;
-
-        }).error(function (data, status, headers, config) {
+        })
+        .error(function (data) {
             $scope.isProcessing = false;
             $scope.showErrorMessage('An error occur while processing your request.');
         });
+
+
+        //$http.get($scope.baseAPIUrl + "/Users?$filter=Username eq '" + $scope.email + "' and Password eq '" + $scope.password + "'").success(function (data) {
+        //    if (data.value.length > 0) {
+        //        var href = getParameterByName('ReturnUrl');
+        //        window.location.href = href;
+        //    }
+        //    else {
+        //        $scope.showErrorMessage('Invalid Credentials.');
+        //    }
+
+        //    $scope.isProcessing = false;
+
+        //}).error(function (data, status, headers, config) {
+        //    $scope.isProcessing = false;
+        //    $scope.showErrorMessage('An error occur while processing your request.');
+        //});
     }
 
     $scope.clearMsg = function () {
@@ -67,5 +87,12 @@ app.controller('loginController', function ($scope, $http,  focus) {
 
     $scope.showErrorMessage = function (message) {
         $scope.alert = { type: 'danger', msg: message };
+    }
+
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
 });
