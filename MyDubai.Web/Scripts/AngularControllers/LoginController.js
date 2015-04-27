@@ -46,12 +46,18 @@ app.controller('loginController', function ($scope, $http,  focus) {
         $scope.isProcessing = true;
 
         $http.get($scope.baseAPIUrl + "/Users?$filter=Username eq '" + $scope.email + "' and Password eq '" + $scope.password + "'").success(function (data) {
+            if (data.value.length > 0) {
+                alert('redirect here to dashboard/homepage');
+            }
+            else {
+                $scope.showErrorMessage('Invalid Credentials.');
+            }
+
             $scope.isProcessing = false;
-            console.log(data);
-            alert('redirect here to dashboard/homepage');
+
         }).error(function (data, status, headers, config) {
             $scope.isProcessing = false;
-            $scope.showErrorMessage('An error occur while processing your request.')
+            $scope.showErrorMessage('An error occur while processing your request.');
         });
     }
 
