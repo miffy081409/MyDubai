@@ -9,7 +9,7 @@ namespace MyDubai.Core.DAL
     {
         //fuck this one why i cant have this on app config
         public MyDubaiDataContext()
-            : base(@"data source=.\SQLExpress;initial catalog=MyDubai;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework")
+            : base("MyDubaiDataContext")
         {
         }
         public DbSet<User> Users { get; set; }
