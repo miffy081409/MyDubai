@@ -117,6 +117,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-combined.min.css" />
     <Content Include="Content\bootstrap-spacelab-theme.css" />
     <Content Include="Content\site.css" />
     <Content Include="Global.asax" />

@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>My Dubai</title>
     <link rel="stylesheet" href="~/Content/bootstrap-spacelab-theme.css" />
+    @*<link rel="stylesheet" href="~/Content/bootstrap-combined.min.css" />*@
     <link rel="stylesheet" href="~/Content/site.css" />
 </head>
 <body ng-app ="myDubaiApp">
@@ -18,7 +19,7 @@
     <nav ng-controller="navbarController" class="navbar navbar-inverse navbar-default" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+            <button type="button" class="btn btn-default navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
