@@ -10,61 +10,50 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>My Dubai</title>
-    <link rel="stylesheet" href="~/Content/bootstrap-spacelab-theme.css" />
-    @*<link rel="stylesheet" href="~/Content/bootstrap-combined.min.css" />*@
+    @*<link rel="stylesheet" href="~/Content/bootstrap-spacelab-theme.css" />*@
+    <link rel="stylesheet" href="~/Content/bootstrap-combined.min.css" />
     <link rel="stylesheet" href="~/Content/site.css" />
 </head>
-<body ng-app ="myDubaiApp">
+<body ng-app="myDubaiApp">
 
-    <nav ng-controller="navbarController" class="navbar navbar-inverse navbar-default" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="btn btn-default navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Brand</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
-
-            @*<ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-
-                <li class="dropdown" dropdown>
-                    <a href="" class="dropdown-toggle" dropdown-toggle>Dropdown <b class="caret"></b></a>
-                    <ul class="dropdown-menu" dropdown-menu>
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                </li>
-
-            </ul>
-            <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+    <div ng-controller="MyCtrl">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Note: set the initial collapsed state and change it when clicking -->
+                    <a ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="btn btn-navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#">#MyDubai Project</a>
+                    <!-- Note: use "collapse" here. The original "data-" settings are not needed anymore. -->
+                    <div collapse="navCollapsed" class="nav-collapse collapse navbar-responsive-collapse">
+                        <form class="navbar-search col-md-offet-3" action="">
+                            <input type="text" class="search-query span9" placeholder="Search hashtag...">
+                        </form>
+                        @if (user != null)
+                        {
+                            <ul class="nav span2 pull-right">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">@user.DisplayName <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">View Profile</a></li>
+                                        <li><a href="#">Account Settings</a></li>
+                                        <li><a href="#">Favorites</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="@Url.Action("logout", "account")">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        }
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>*@
-            <ul class="nav navbar-nav navbar-right">
-                @if (user != null)
-                {
-                    <li class="dropdown" dropdown>
-                        <a href="" class="dropdown-toggle" dropdown-toggle>@user.DisplayName <b class="caret"></b></a>
-                        <ul class="dropdown-menu" dropdown-menu>
-                            <li><a href="@Url.Action("logout","account")">Logout</a></li>
-                        </ul>
-                    </li>
-                }
-            </ul>
+            </div>
         </div>
-    </nav>
+
+    </div>
+
     <div>
         @RenderBody()
     </div>
@@ -77,11 +66,16 @@
 
     <script type="text/javascript">
         app.controller('navbarController', function ($scope) {
-            
+
+        });
+
+        app.controller('MyCtrl', function ($scope) {
+
         });
     </script>
 
     @RenderSection("Scripts", false)
 
 </body>
+
 </html>
