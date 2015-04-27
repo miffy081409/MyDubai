@@ -29,6 +29,7 @@ namespace MyDubai.Web.Controllers
                 return Json("Failed");
             }
 
+            Session.Add("currentuser", user);
             FormsAuthentication.SetAuthCookie(JsonConvert.SerializeObject(user), true);
             return Json("Success");
         }

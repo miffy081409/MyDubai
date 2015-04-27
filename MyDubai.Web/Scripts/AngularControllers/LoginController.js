@@ -50,7 +50,12 @@ app.controller('loginController', function ($scope, $http,  focus) {
         .success(function (data) {
             if (data.toLowerCase() === 'success') {
                 var href = getParameterByName('ReturnUrl');
-                window.location.href = href;
+                if (href === '' || href === undefined || href === null) {
+                    window.location.href = window.location.protocol + "//" + window.location.host;
+                }
+                else {
+                    window.location.href = href;
+                }
             }
             else {
                 $scope.showErrorMessage('Invalid Credentials.');

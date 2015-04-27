@@ -1,1 +1,1 @@
-﻿var app = angular.module('myDubaiApp', []);
+﻿var app = angular.module('myDubaiApp', ['ui.bootstrap']);
