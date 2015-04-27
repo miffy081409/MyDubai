@@ -17,11 +17,12 @@ app.factory('focus', function ($rootScope, $timeout) {
 });
 
 //include the factory
-app.controller('loginController', function ($scope, focus) {
+app.controller('loginController', function ($scope, $http,  focus) {
     $scope.alert = { type: 'danger', msg: '' };
     $scope.email = '';
     $scope.password = '';
     $scope.isProcessing = false;
+    $scope.baseAPIUrl = window.location.protocol + "//" + window.location.host + '/odata/';
 
     $scope.validate = function () {
         if ($scope.email === '') {
@@ -36,13 +37,25 @@ app.controller('loginController', function ($scope, focus) {
             return;
         }
 
-        $scope.alert.msg = '';
+        $scope.clearMsg();
         $scope.login();
 
     }
 
     $scope.login = function () {
         $scope.isProcessing = true;
+
+        $http.get($scope.baseAPIUrl + "/Users('" + $scope.email + "')?$filter=Password eq '" + $scope.password + "'").success(function (data) {
+            $scope.isProcessing = false;
+            console.log(data);
+        }).error(function (data, status, headers, config) {
+            $scope.isProcessing = false;
+            $scope.showErrorMessage('An error occur while processing your request.')
+        });
+    }
+
+    $scope.clearMsg = function () {
+        $scope.alert.msg = '';
     }
 
     $scope.showErrorMessage = function (message) {

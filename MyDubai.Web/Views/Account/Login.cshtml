@@ -30,8 +30,8 @@
                         {{alert.msg}}
                     </div>
                     <div class="form-group">
-                        <input focus-on="email" type="text" ng-model="email" focus="{{email}}" class="form-control" placeholder="Enter email" ng-readonly="isProcessing">
-                        <input focus-on="password" type="password" ng-model="password" focus="{{password}}" class="form-control" placeholder="Password" ng-readonly="isProcessing">
+                        <input focus-on="email" type="text" ng-change="clearMsg()" ng-model="email" focus="{{email}}" class="form-control" placeholder="Enter email" ng-readonly="isProcessing">
+                        <input focus-on="password" type="password" ng-change="clearMsg()" ng-model="password" focus="{{password}}" class="form-control" placeholder="Password" ng-readonly="isProcessing">
                     </div>
                     <div class="form-group">
                         <input type="checkbox" value="Test" />
