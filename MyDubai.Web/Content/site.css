@@ -54,7 +54,20 @@ h3, h4 {
 .alert {
     padding:5px !important;
 }
+/* bench style */
 
 .navbar {
-   
     margin-bottom: 0px !important;
+}
+
+
+.modal-footer {
+    border-top: 0 !important;
+}
+
+.modal-dialog {
+    margin-top: 85px;
+}
+
+
+/*end bench style*/
