@@ -11,51 +11,62 @@
     <meta name="viewport" content="width=device-width" />
     <title>My Dubai</title>
     @*<link rel="stylesheet" href="~/Content/bootstrap-spacelab-theme.css" />*@
-    <link rel="stylesheet" href="~/Content/bootstrap-combined.min.css" />
+    @*<link rel="stylesheet" href="~/Content/bootstrap-combined.min.css" />*@
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Content/site.css" />
 </head>
 <body ng-app="myDubaiApp">
 
     <div ng-controller="MyCtrl">
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="container">
+        <nav class="navbar navbar-default ">
+            <div class="container-fluid">
+                <div class="navbar-header">
                     <!-- Note: set the initial collapsed state and change it when clicking -->
-                    <a ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="btn btn-navbar">
+                    <a ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="btn btn-navbar navbar-toggle">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">#MyDubai Project</a>
-                    <!-- Note: use "collapse" here. The original "data-" settings are not needed anymore. -->
-                    <div collapse="navCollapsed" class="nav-collapse collapse navbar-responsive-collapse">
-                        <form class="navbar-search col-md-offet-3" action="">
-                            <input type="text" class="search-query span9" placeholder="Search hashtag...">
-                        </form>
-                        @if (user != null)
-                        {
-                            <ul class="nav span2 pull-right">
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">@user.DisplayName <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">View Profile</a></li>
-                                        <li><a href="#">Account Settings</a></li>
-                                        <li><a href="#">Favorites</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="@Url.Action("logout", "account")">Logout</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        }
-                    </div>
+                    @*<a ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="btn btn-navbar navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>*@
+                    <a class="navbar-brand" href="#"><strong>#MyDubai Project</strong></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    @if (user != null)
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@user.DisplayName <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">View Profile</a></li>
+                                    <li><a href="#">Account Settings</a></li>
+                                    <li><a href="#">Favorites</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="@Url.Action("logout", "account")">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+                    <form class="navbar-form">
+                        @*<input class="form-control " placeholder="Search Hashtag..." type="text">*@
+                        <div class="form-group" style="display:inline;">
+                            <div class="input-group" style="display:table;">
+                                <input class="form-control" name="search" placeholder="Search Hashtag..." autocomplete="off" autofocus="autofocus" type="text">
+                                <span class="input-group-addon" style="width:1%;">@*<span class="glyphicon glyphicon-search"></span>*@ Search</span>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div>
-
+        </nav>
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12">
-              @RenderBody()      
+    <div class="container-fluid">
+        @RenderBody()
     </div>
 
     @*Add main js here*@
@@ -77,5 +88,9 @@
     @RenderSection("Scripts", false)
 
 </body>
+
+
+
+
 
 </html>
