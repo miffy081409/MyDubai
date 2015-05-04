@@ -896,6 +896,8 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Scripts\ui-bootstrap\ui-bootstrap-0.12.1.min.js" />
+    <Content Include="Scripts\ui-bootstrap\ui-bootstrap-tpls-0.12.1.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

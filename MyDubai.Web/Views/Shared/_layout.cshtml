@@ -17,53 +17,54 @@
 </head>
 <body ng-app="myDubaiApp">
 
-    <div ng-controller="MyCtrl">
-        <nav class="navbar navbar-default ">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <!-- Note: set the initial collapsed state and change it when clicking -->
-                    <a ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="btn btn-navbar navbar-toggle">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    @*<a ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="btn btn-navbar navbar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>*@
-                    <a class="navbar-brand" href="#"><strong>#MyDubai Project</strong></a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    @if (user != null)
-                    {
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@user.DisplayName <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">View Profile</a></li>
-                                    <li><a href="#">Account Settings</a></li>
-                                    <li><a href="#">Favorites</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="@Url.Action("logout", "account")">Logout</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    }
-                    <form class="navbar-form">
-                        @*<input class="form-control " placeholder="Search Hashtag..." type="text">*@
-                        <div class="form-group" style="display:inline;">
-                            <div class="input-group" style="display:table;">
-                                <input class="form-control" name="search" placeholder="Search Hashtag..." autocomplete="off" autofocus="autofocus" type="text">
-                                <span class="input-group-addon" style="width:1%;">@*<span class="glyphicon glyphicon-search"></span>*@ Search</span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+
+
+
+    <nav class="navbar navbar-default" ng-controller="MyCtrl">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="btn btn-navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><strong>#MyDubai Project</strong></a>
             </div>
-        </nav>
-    </div>
+            <div id="navbar" class="collapse navbar-collapse" collapse="navCollapsed">
+
+                @if (user != null)
+                {
+                    <!-- dropdown account links-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown open" dropdown="">
+                            <a aria-expanded="true" aria-haspopup="true" role="button" class="dropdown-toggle" dropdown-toggle="">
+                                @user.DisplayName <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">View Profile</a></li>
+                                <li><a href="#">Account Settings</a></li>
+                                <li><a href="#">Favorites</a></li>
+                                <li class="divider"></li>
+                                <li><a href="@Url.Action("logout", "account")">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                }
+
+                <!-- Search tags -->
+                <form class="navbar-form">
+                    <div class="form-group" style="display:inline;">
+                        <div class="input-group" style="display:table;">
+                            <input class="form-control" name="search" placeholder="Search Hashtag..." autocomplete="off" autofocus="autofocus" type="text">
+                            <span class="input-group-addon" style="width:1%;">Search</span>
+                        </div>
+                    </div>
+                </form>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
 
     <div class="container-fluid">
         @RenderBody()
@@ -71,8 +72,10 @@
 
     @*Add main js here*@
     <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/angular-ui/ui-bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    @*<script type="text/javascript" src="~/Scripts/angular-ui/ui-bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>*@
+    <script type="text/javascript" src="~/Scripts/ui-bootstrap/ui-bootstrap-0.12.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/ui-bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
     <script type="text/javascript" src="~/Scripts/AngularModule/MyDubaiApp.js"></script>
 
     <script type="text/javascript">
@@ -88,6 +91,14 @@
     @RenderSection("Scripts", false)
 
 </body>
+
+
+
+
+
+
+
+
 
 
 
