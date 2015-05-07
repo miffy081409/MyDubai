@@ -111,4 +111,19 @@ h3, h4 {
     .xs-mobile-right {
         float: right !important;
     }
+
+        .xs-mobile-tablet-hide {
+    display: none !important;
+    }
+
+
 }
+
+
+
+/*desktop*/
+
+.xs-mobile-tablet-hide  {
+display: block !important;
+}
+
