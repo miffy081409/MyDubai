@@ -67,6 +67,7 @@ h3, h4 {
 
 .modal-dialog {
     margin-top: 85px;
+    width: 480px;
 }
 
 
@@ -82,3 +83,32 @@ h3, h4 {
     background-color:khaki;
 }
 /*end jick*/
+
+
+/*login modal only*/
+@media (min-width: 768px) {
+    
+   .modal-dialog {
+    width: 480px;   
+   }
+}
+
+@media(max-width: 760px) {
+    .modal-dialog {
+    width: auto !important;    
+    }
+}
+/*end login modal*/
+
+/*Changes in */
+
+@media (max-width: 360px) {
+
+    .xs-mobile-left {
+        float: left !important;
+      
+     }
+    .xs-mobile-right {
+        float: right !important;
+    }
+}
