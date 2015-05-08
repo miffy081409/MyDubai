@@ -112,18 +112,28 @@ h3, h4 {
         float: right !important;
     }
 
-        .xs-mobile-tablet-hide {
-    display: none !important;
-    }
+   /*.xs-mobile-tablet-hide {
+    display: inline-block !important;
+    }*/
 
 
 }
 
 
+@media (max-width: 568px) {
+      .xs-mobile-left {
+        float: left !important;
+      
+     }
+    .xs-mobile-right {
+        float: right !important;
+    }
+
+}
 
 /*desktop*/
 
-.xs-mobile-tablet-hide  {
-display: block !important;
-}
+/*.xs-mobile-tablet-hide  {
+display:  none !important;
+}*/
 
